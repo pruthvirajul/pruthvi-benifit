@@ -1,6 +1,3 @@
-
-
-
 CREATE TABLE employees (
     id VARCHAR(7) PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
