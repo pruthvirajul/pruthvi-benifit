@@ -14,4 +14,3 @@ COPY . .
 # Expose port and run the server
 EXPOSE 3412
 CMD ["node", "server.js"]
-
