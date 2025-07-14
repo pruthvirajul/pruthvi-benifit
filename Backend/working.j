@@ -192,7 +192,7 @@ app.post('/api/add-employee', upload.single('profileImage'), async (req, res) =>
       return res.status(400).json({ error: 'Invalid Employee ID format' });
     }
 
-    if (!email.match(/^[a-zA-Z][a-zA-Z0-9._-]*[a-zA-Z0-9]@astrolitetech\.com$/)) {
+    if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
       return res.status(400).json({ error: 'Invalid email format' });
     }
 
@@ -264,3 +264,4 @@ const PORT = process.env.EMPLOYEE_PORT || 3412;
 app.listen(PORT, () => {
   console.log(`Employee server running on port ${PORT}`);
 });
+

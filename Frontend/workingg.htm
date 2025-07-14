@@ -662,7 +662,7 @@
             </div>
             <div class="input-group">
                 <label for="empEmail">Email Address:</label>
-                <input type="email" id="empEmail" placeholder="Enter Email Address" required minlength="7" maxlength="50" pattern="^[a-zA-Z][a-zA-Z0-9._-]*[a-zA-Z0-9]@astrolitetech\.com$" title="Email must have at least 3 letters, allow ._- (not consecutive), and use .astrolitetech.com, no spaces">
+                <input type="email" id="empEmail" placeholder="Enter Email Address" required minlength="7" maxlength="50" pattern="^[a-zA-Z][a-zA-Z0-9._-]{1,}[a-zA-Z]@(?:gmail\.com|outlook\.com|[\w-]+\.(?:co|in|org))$" title="Email must have at least 3 letters, allow ._- (not consecutive), and use gmail.com, outlook.com, *.co, *.in, or *.org domains, no spaces">
                 <div class="error-message" id="emailError"></div>
             </div>
             <div class="input-group">
@@ -950,13 +950,13 @@
                 return false;
             }
             const letters = (value.match(/[a-zA-Z]/g) || []).length;
-            if (!value.match(/^[a-zA-Z][a-zA-Z0-9._-]*[a-zA-Z0-9]@astrolitetech\.com$/) || 
+            if (!value.match(/^[a-zA-Z][a-zA-Z0-9._-]{1,}[a-zA-Z]@(?:gmail\.com|outlook\.com|[\w-]+\.(?:co|in|org))$/) || 
                 letters < 3 || 
                 /[._-]{2,}/.test(value) || 
                 /\s{2,}/.test(field.value) || 
                 /^\s/.test(field.value) || 
                 /\s$/.test(field.value)) {
-                errorElement.textContent = 'Email must have at least 3 letters, allow ._- (not consecutive), use .astrolitetech.com, no spaces';
+                errorElement.textContent = 'Email must have at least 3 letters, allow ._- (not consecutive), use gmail.com, outlook.com, *.co, *.in, or *.org, no spaces';
                 errorElement.style.display = 'block';
                 return false;
             }
